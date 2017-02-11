@@ -10,7 +10,8 @@ public class PenguinController: MonoBehaviour {
     Rigidbody rb;
 	
 	public int speed;
-    public int maxspeed;
+    public float rotSpeed;
+    public int maxSpeed;
     private State currentState = State.ALIVE;
 	
 	public float lookSpeed = 10;
@@ -56,25 +57,50 @@ public class PenguinController: MonoBehaviour {
         }
 
         //transform.Translate(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-		
-		if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
 
-            transform.localEulerAngles = new Vector3(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0);
+        if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0), Time.deltaTime * rotSpeed);
         }
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") != 0)
         {
             if (Input.GetAxis("Vertical") > 0)
             {
-                transform.localEulerAngles = new Vector3(0,0, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,0,0), Time.deltaTime * rotSpeed);
+                //transform.localEulerAngles = new Vector3(0,0, 0);
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
-                transform.localEulerAngles = new Vector3(0, 180, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 180, 0);
             }
         }
         if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
         {
+            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") >= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 45, 0), Time.deltaTime * rotSpeed);
 
+                //transform.localEulerAngles = new Vector3(0, 45, 0);
+            }
+            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") <= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 225, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 225, 0);
+            }
+            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") <= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 135, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 135, 0);
+            }
+            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") >= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 315, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 315, 0);
+            }
         }
         Debug.Log(Mathf.Sign(Input.GetAxis("Horizontal")));
         //transform.LookAt(lookAtThat);
@@ -83,13 +109,11 @@ public class PenguinController: MonoBehaviour {
 
     private void FixedUpdate()
     {
-		prevLoc = curLoc;
-        curLoc = transform.position;
+        
         rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
-
-        if (rb.velocity.magnitude > maxspeed)
-		{
-			rb.velocity = rb.velocity.normalized * maxspeed;
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
 	}
 	
