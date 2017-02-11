@@ -66,7 +66,7 @@ public class PenguinController : MonoBehaviour {
 
     public void Dead()
     {
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<fadeout>().fade = true;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
         
     }
 

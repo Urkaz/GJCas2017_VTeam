@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class fadeout : MonoBehaviour {
+public class Fadeout : MonoBehaviour {
     public Texture2D fadeTexture;
     float fadeSpeed;
     int drawDepth;
