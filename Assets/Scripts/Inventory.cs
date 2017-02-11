@@ -18,18 +18,20 @@ public class Inventory: MonoBehaviour
         KeyTOSTartBoat
     };
     //inventory has the id of object
-    static List<Items> inventory = new List<Items>();
+    public List<Items> inventory = new List<Items>();
 
     //Add id of object
     public void addObject(Items item)
     {
         inventory.Add(item);
     }
+    
     //Remove id of object
     public void removeObject(Items item)
     {
         inventory.Remove(item);
     }
+
     //Search for object, if found return true if not false
     public bool findObject(Items item)
     {

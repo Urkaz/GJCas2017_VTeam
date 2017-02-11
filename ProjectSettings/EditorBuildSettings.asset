@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CargoBay2.unity
   - enabled: 1
     path: Assets/Scenes/CargoBay3.unity
+  - enabled: 1
+    path: Assets/Rooms/main_menu.unity
+  - enabled: 1
+    path: Assets/Rooms/puzzle_box_01.unity
