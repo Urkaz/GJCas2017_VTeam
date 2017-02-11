@@ -8,6 +8,7 @@ public class PenguinController: MonoBehaviour {
     GameObject currentCollidedObject;
     Inventory inv;
     Rigidbody rb;
+    PuzzleManager PipeManager;
 	
 	public int speed;
     public float rotSpeed;
@@ -32,6 +33,7 @@ public class PenguinController: MonoBehaviour {
 	void Start () {
         gameObject.AddComponent<Inventory>();
         inv = gameObject.GetComponent<Inventory>();
+
         GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
         if (PlayerPrefs.GetInt("TargetSpawn", -1)==-1)
         {
@@ -141,13 +143,23 @@ public class PenguinController: MonoBehaviour {
     {
         if(currentCollidedObject!=null)
         {
-            if(!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) && currentCollidedObject.GetComponent<PickUpType>().type== Inventory.Items.Pipe)
+            if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) && currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe) ;
+
+            if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
+            {
+                if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)){
+                    inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                    PipeManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
+                    Destroy(currentCollidedObject);
+                    currentCollidedObject = null;
+                }
+            }
+            else
             {
                 inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
                 Destroy(currentCollidedObject);
                 currentCollidedObject = null;
             }
-            
         }
     }
 
