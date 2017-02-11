@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489074638351106}
   - component: {fileID: 54668131402190254}
-  - component: {fileID: 65746190753851966}
+  - component: {fileID: 65001307297955500}
   m_Layer: 0
   m_Name: Pipelong
   m_TagString: Untagged
@@ -64,14 +64,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813431411794352}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.8710003, y: 1.939, z: -1.01}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: -4.52, y: 0.133, z: 1.874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4370856670407724}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
 --- !u!23 &23705749549218494
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!65 &65746190753851966
+--- !u!65 &65001307297955500
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,5 +135,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 0.28, z: 0.28}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.8873043, y: 0.23241091, z: 0.61173224}
+  m_Center: {x: -0.0066771507, y: -0.0044728667, z: 0.19413364}
