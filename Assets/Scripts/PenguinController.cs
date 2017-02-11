@@ -1,77 +1,126 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PenguinController : MonoBehaviour {
+public class PenguinController: MonoBehaviour {
 
-    public int speed;
-    public int maxSpeed;
+    GameObject currentCollidedObject;
+    Inventory inv;
     Rigidbody rb;
-    public SpriteRenderer sr;
+    public int speed;
+    public int maxspeed;
+    private State currentState = State.ALIVE;
+    
+    public enum State
+    {
+        ALIVE,
+        DUDU,
+        PUSHING,
+        DEAD
+    };
 
-    // Use this for initialization
-    void Start () {
-        rb = this.gameObject.GetComponent<Rigidbody>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
-
-        //sr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
-        //sr.receiveShadows = true;
-
-    }
+	// Use this for initialization
+	void Start () {
+        gameObject.AddComponent<Inventory>();
+        inv = gameObject.GetComponent<Inventory>();
+        GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
+        if (PlayerPrefs.GetInt("TargetSpawn", -1)==-1)
+        {
+            PlayerPrefs.SetInt("TargetSpawn", 2);
+        }
+        foreach (GameObject spawn in arraySpawns)
+        {
+            if (spawn.GetComponent<SpawnInfo>().SpawnIndex == PlayerPrefs.GetInt("TargetSpawn"))
+            {
+                transform.position = spawn.transform.position;
+                break;
+            }
+        }
+        PlayerPrefs.SetInt("TargetSpawn", -1);
+        rb = GetComponent<Rigidbody>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        //rb.AddForce(new Vector3(Input.GetAxis("Horizontal") * speed, 0, Input.GetAxis("Vertical") * speed) * Time.deltaTime);
+		if (Input.GetAxis("PickUp")!=0)
+        {
+            PickUp();
+        }
+
+        //transform.Translate(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
-
-        if (rb.velocity.magnitude > maxSpeed)
+        /*if (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) == Vector3.zero)
+            rb.velocity = Vector3.zero;
+        rb.MovePosition(transform.position + new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))* speed * Time.deltaTime);
+        */
+        if(currentState == State.PUSHING )
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            transform.Translate(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0, Input.GetAxis("Vertical") * Time.deltaTime));
+        }
+        else
+        {
+            rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+
+            if (rb.velocity.magnitude >= maxspeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxspeed;
+            }
+        }
+        
+    }
+
+    private void OnTriggerEnter (Collider collision)
+    {
+        if(collision.gameObject.tag == "Pickable")
+        {
+            currentCollidedObject = collision.gameObject;
+        }
+        else if (collision.gameObject.tag == "Door")
+        {
+            EnterDoor(collision.gameObject);
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    private void OnTriggerExit (Collider collision)
     {
-        //Objetos
-    }
-
-    void Movement()
-    {
-
-    }
-
-    void Interactuate()
-    {
+        if (currentCollidedObject==collision.gameObject)
+        {
+            currentCollidedObject = null;
+        }
 
     }
-
-    void Take()
+    public void SetState(State state)
     {
-
+        currentState = state;
+    }
+    void PickUp()
+    {
+        if(currentCollidedObject!=null)
+        {
+            inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+            Destroy(currentCollidedObject);
+            currentCollidedObject = null;
+        }
     }
 
-    void Use()
+    void EnterDoor(GameObject door)
     {
-
-    }
-
-    void Hide()
-    {
-
+        int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
+        PlayerPrefs.SetInt("TargetSpawn", a[1]);
+        SceneManager.LoadScene(a[0]);
     }
 
     public void Dead()
     {
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
+        if(!currentState.Equals(State.DEAD))
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
+        }
         
+
     }
-
-
-
-
-
 }
