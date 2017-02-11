@@ -19,7 +19,7 @@ public class MoveBox : MonoBehaviour {
     }
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("asasfafafdfasf");
+        //Debug.Log("asasfafafdfasf");
         /*if (collision.gameObject.tag.Equals("Player"))
         {
             player = null;

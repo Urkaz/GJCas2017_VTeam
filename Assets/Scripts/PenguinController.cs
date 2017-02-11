@@ -8,16 +8,24 @@ public class PenguinController: MonoBehaviour {
     GameObject currentCollidedObject;
     Inventory inv;
     Rigidbody rb;
-    public int speed;
-    public int maxspeed;
+	
+	public int speed;
+    public float rotSpeed;
+    public int maxSpeed;
     private State currentState = State.ALIVE;
+	
+	public float lookSpeed = 10;
+    private Vector3 curLoc;
+    private Vector3 prevLoc;
+
+    Vector3 lookAtThat;
     
     public enum State
     {
         ALIVE,
         DUDU,
-        PUSHING,
-        DEAD
+        DEAD,
+        PUSHING
     };
 
 	// Use this for initialization
@@ -33,12 +41,12 @@ public class PenguinController: MonoBehaviour {
         {
             if (spawn.GetComponent<SpawnInfo>().SpawnIndex == PlayerPrefs.GetInt("TargetSpawn"))
             {
-                transform.position = spawn.transform.position + Vector3.up * gameObject.GetComponent<SphereCollider>().bounds.extents.y;
+                transform.position = spawn.transform.position + Vector3.up * gameObject.GetComponent<CapsuleCollider>().bounds.extents.y;
                 break;
             }
         }
         PlayerPrefs.SetInt("TargetSpawn", -1);
-        rb = GetComponent<Rigidbody>();
+		rb = GetComponent<Rigidbody>();
 	}
 	
 
@@ -48,20 +56,63 @@ public class PenguinController: MonoBehaviour {
         {
             PickUp();
         }
-
     }
 
     private void FixedUpdate()
     {
-            rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
-
-            if (rb.velocity.magnitude >= maxspeed)
-            {
-                rb.velocity = rb.velocity.normalized * maxspeed;
-            }
         
-    }
+        rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
 
+        if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0), Time.deltaTime * rotSpeed);
+        }
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") != 0)
+        {
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,0,0), Time.deltaTime * rotSpeed);
+                //transform.localEulerAngles = new Vector3(0,0, 0);
+            }
+            else if (Input.GetAxis("Vertical") < 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 180, 0);
+            }
+        }
+        if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+        {
+            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") >= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 45, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 45, 0);
+            }
+            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") <= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 225, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 225, 0);
+            }
+            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") <= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 135, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 135, 0);
+            }
+            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") >= 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 315, 0), Time.deltaTime * rotSpeed);
+
+                //transform.localEulerAngles = new Vector3(0, 315, 0);
+            }
+        }
+    }
+	
     private void OnTriggerEnter (Collider collision)
     {
         if(collision.gameObject.tag == "Pickable")
@@ -109,7 +160,5 @@ public class PenguinController: MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
         }
-        
-
     }
 }

@@ -32,7 +32,7 @@ public class CameraBehaviour : MonoBehaviour {
         {
             Vector3 playerViewport = camera.WorldToViewportPoint(player.transform.position);
             Ray ray = camera.ViewportPointToRay(playerViewport);
-            Vector3 vectorRight = new Vector3(ray.direction.z, 0, -ray.direction.x).normalized * (player.GetComponent<SphereCollider>().radius - 0.1f);
+            Vector3 vectorRight = new Vector3(ray.direction.z, 0, -ray.direction.x).normalized * (player.GetComponent<CapsuleCollider>().radius - 0.1f);
             //Debug.DrawLine(camera.transform.position, camera.transform.position + ray.direction);
             //Debug.DrawLine(player.transform.position, player.transform.position + vectorRight * 10);
             RaycastHit hit;
