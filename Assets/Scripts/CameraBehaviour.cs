@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
-    public GameObject cam;
-    public Camera camera;
-    private GameObject player;
+    public GameObject cam;    
 
     // Use this for initialization
     void Start () {

@@ -115,11 +115,11 @@ public class PenguinController: MonoBehaviour {
 	
     private void OnTriggerEnter (Collider collision)
     {
-        if(collision.gameObject.tag == "Pickable")
+        if(collision.gameObject.tag.Equals("Pickable"))
         {
             currentCollidedObject = collision.gameObject;
         }
-        else if (collision.gameObject.tag == "Door")
+        else if (collision.gameObject.tag.Equals("Door"))
         {
             EnterDoor(collision.gameObject);
         }
