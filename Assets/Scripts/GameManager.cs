@@ -13,20 +13,31 @@ public class GameManager : MonoBehaviour {
 		pipe_level_04
 	}
 
-	private Levels currentLevel = Levels.main_menu;
+	public Levels initialLevel = Levels.puzzle_box_01;
 
-	public GameObject player;
+	private int spawnTarget = -1;
+
+	private Levels currentLevel = Levels.main_menu;
 
 	void Awake() {
         DontDestroyOnLoad(transform.gameObject);
     }
 
 	public void LoadFirstLevel() {
-		LoadLevel(Levels.puzzle_box_01);
+		LoadLevel(initialLevel);
+		setSpawnTarget(0);
 	}
 
 	public void LoadLevel(Levels level) {
 		Debug.Log(level.ToString());
 		SceneManager.LoadSceneAsync(level.ToString());
+	}
+
+	public void setSpawnTarget(int spawnTarget) {
+		this.spawnTarget = spawnTarget;
+	}
+
+	public int getSpawnTarget() {
+		return spawnTarget;
 	}
 }

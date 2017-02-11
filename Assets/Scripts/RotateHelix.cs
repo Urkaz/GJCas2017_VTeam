@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestInventory : MonoBehaviour {
+public class RotateHelix : MonoBehaviour {
+
+    Transform tr;
+    public float rotspeed;
 
 	// Use this for initialization
 	void Start () {
-		
+        tr = transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        	//print(GetComponent<Inventory>().ContainsKeyDoor());
-	}
+        transform.Rotate(Vector3.up * rotspeed * Time.deltaTime);
+    }
 }

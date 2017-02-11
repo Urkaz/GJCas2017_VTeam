@@ -13,11 +13,10 @@ public class CameraDetectPlayer : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () {	
 	}
-    private void OnTriggerStay(Collider other)
-    {
+
+    private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag.Equals("Player"))
         {
             Vector3 playerViewport = myCamera.WorldToViewportPoint(player.transform.position);
@@ -64,11 +63,8 @@ public class CameraDetectPlayer : MonoBehaviour {
                             }
                         }
                     }
-
-
                 }
             }
         }
-
     }
 }

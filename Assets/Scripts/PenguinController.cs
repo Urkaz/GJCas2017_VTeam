@@ -26,6 +26,8 @@ public class PenguinController: MonoBehaviour {
 
     public float animSpeed;
 
+    private GameManager gm;
+
     public enum State
     {
         ALIVE,
@@ -37,24 +39,24 @@ public class PenguinController: MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
-        gameObject.AddComponent<Inventory>();
-        inv = gameObject.GetComponent<Inventory>();
+        //gameObject.AddComponent<Inventory>();
+        gm = FindObjectOfType<GameManager>();
+        inv = gm.gameObject.GetComponent<Inventory>();
+        rb = GetComponent<Rigidbody>();
 
         GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
-        if (PlayerPrefs.GetInt("TargetSpawn", -1)==-1)
-        {
-            PlayerPrefs.SetInt("TargetSpawn", 0);
-        }
-        foreach (GameObject spawn in arraySpawns)
-        {
-            if (spawn.GetComponent<SpawnInfo>().SpawnIndex == PlayerPrefs.GetInt("TargetSpawn"))
+
+        if(gm != null) {
+            foreach (GameObject spawn in arraySpawns)
             {
-                transform.position = spawn.transform.position + Vector3.up * gameObject.GetComponent<CapsuleCollider>().bounds.extents.y;
-                break;
+                if (spawn.GetComponent<SpawnInfo>().SpawnIndex == gm.getSpawnTarget())
+                {
+                    transform.position = spawn.transform.position + Vector3.up * gameObject.GetComponent<CapsuleCollider>().bounds.extents.y;
+                    break;
+                }
             }
+            gm.setSpawnTarget(-1);
         }
-        PlayerPrefs.SetInt("TargetSpawn", -1);
-		rb = GetComponent<Rigidbody>();
 	}
 	
 
@@ -163,23 +165,22 @@ public class PenguinController: MonoBehaviour {
     {
         if(currentCollidedObject!=null)
         {
-            if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) && currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe) ;
-
-            if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
-            {
-                if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)){
+            if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type))
+                if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
+                {
+                    if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)) {
+                        inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                        PipeManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
+                        Destroy(currentCollidedObject);
+                        currentCollidedObject = null;
+                    }
+                }
+                else
+                {
                     inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                    PipeManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
                     Destroy(currentCollidedObject);
                     currentCollidedObject = null;
                 }
-            }
-            else
-            {
-                inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                Destroy(currentCollidedObject);
-                currentCollidedObject = null;
-            }
         }
     }
 
@@ -187,8 +188,11 @@ public class PenguinController: MonoBehaviour {
     {
         int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
 
-        PlayerPrefs.SetInt("TargetSpawn", a[1]);
-        SceneManager.LoadScene(a[0]);
+        if(gm != null) {
+            gm.setSpawnTarget(a[1]);
+            gm.LoadLevel((GameManager.Levels) a[0]);
+        }
+
     }
 
     public void Dead()

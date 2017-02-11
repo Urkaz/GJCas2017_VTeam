@@ -6,18 +6,11 @@ public class Inventory: MonoBehaviour
 {
     public enum Items
     {
-        KeyDoor,
-        Wrench,
-        Code,
-        Card,
-        Pipe,
-        /*
-         * 
-         */
-        KeyToRudderRoom,
-        Stool,
-        KeyTOSTartBoat
+        CargoKey,
+        SteamKey,
+        Pipe
     };
+
     //inventory has the id of object
     public List<Items> inventory = new List<Items>();
 
@@ -39,10 +32,10 @@ public class Inventory: MonoBehaviour
         return inventory.IndexOf(item) > -1 ? true : false;
     }
 
-    public bool ContainsKeyDoor()
+    /*public bool ContainsKeyDoor()
     {
-        return inventory.Contains(Items.KeyDoor);
-    }
+        return inventory.Contains(Items.CargoKey);
+    }*/
 
     public bool Contains(Items item)
     {
