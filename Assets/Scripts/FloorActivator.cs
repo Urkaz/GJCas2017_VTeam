@@ -10,23 +10,39 @@ public class FloorActivator : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag.Equals("Player"))
+        if(!GetComponentInParent<FloorTileParent>().getCompleted() && GetComponentInParent<FloorTileParent>().getCanInteract())
         {
-            activated = !activated;
-            ChangeMat();
-        }
-    }
+            if (col.gameObject.tag.Equals("Player"))
+            {
+                if (GetComponentInParent<FloorTileParent>().getCompleted() != true)
+                {
+                    GetComponentInParent<FloorTileParent>().setTileColored(activated);
 
+                    if (GetComponentInParent<FloorTileParent>().getCanInteract())
+                    {
+                        activated = !activated;
+                        ChangeMat();
+                    }
+                }
+            }
+        }
+        
+    }
+    public void eraseActivated()
+    {
+        activated = false;
+        gameObject.GetComponent<MeshRenderer>().material = de;
+    }
     private void ChangeMat()
     {
-        if (activated)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = ac;
-        }
-        else
-        {
-            gameObject.GetComponent<MeshRenderer>().material = de;
-        }
+            if (activated)
+            {
+                gameObject.GetComponent<MeshRenderer>().material = ac;
+            }
+            else
+            {
+                gameObject.GetComponent<MeshRenderer>().material = de;
+            }
     }
 
     // Use this for initialization
