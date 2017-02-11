@@ -10,6 +10,7 @@ public class Inventory: MonoBehaviour
         Wrench,
         Code,
         Card,
+        Pipe,
         /*
          * 
          */
@@ -40,5 +41,12 @@ public class Inventory: MonoBehaviour
     {
         return inventory.Contains(Items.KeyDoor);
     }
+
+    public bool Contains(Items item)
+    {
+         return inventory.Contains(item);
+    }
+
+
 
 }

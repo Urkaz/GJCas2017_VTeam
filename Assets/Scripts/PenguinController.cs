@@ -145,9 +145,13 @@ public class PenguinController: MonoBehaviour {
     {
         if(currentCollidedObject!=null)
         {
-            inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-            Destroy(currentCollidedObject);
-            currentCollidedObject = null;
+            if(!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) && currentCollidedObject.GetComponent<PickUpType>().type== Inventory.Items.Pipe)
+            {
+                inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                Destroy(currentCollidedObject);
+                currentCollidedObject = null;
+            }
+            
         }
     }
 

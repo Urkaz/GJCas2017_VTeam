@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4121202226895930}
   - component: {fileID: 54925276930545168}
+  - component: {fileID: 65160555500647682}
   m_Layer: 0
   m_Name: Pipeshort
   m_TagString: Untagged
@@ -50,14 +51,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606799497341486}
-  m_LocalRotation: {x: 0.50106126, y: 0.50106126, z: -0.49893647, w: -0.49893647}
-  m_LocalPosition: {x: 5.734, y: -0.859, z: -1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 6.367, y: 0.155, z: -0.472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4616124095743690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 269.757, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 180, y: 269.757, z: 0}
 --- !u!4 &4616124095743690
 Transform:
   m_ObjectHideFlags: 1
@@ -124,3 +125,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!65 &65160555500647682
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606799497341486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0349321, y: 0.26614463, z: 0.2647807}
+  m_Center: {x: 1.9346486, y: -0.0026680236, z: -0.00001168251}
