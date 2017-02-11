@@ -7,31 +7,61 @@ public class PenguinController : MonoBehaviour {
     public int speed;
     public int maxSpeed;
     Rigidbody rb;
-    public SpriteRenderer sr;
+
+
+    public float lookSpeed = 10;
+    private Vector3 curLoc;
+    private Vector3 prevLoc;
+
+    Vector3 lookAtThat;
 
     // Use this for initialization
     void Start () {
         rb = this.gameObject.GetComponent<Rigidbody>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
 
-        //sr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
-        //sr.receiveShadows = true;
+
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //rb.AddForce(new Vector3(Input.GetAxis("Horizontal") * speed, 0, Input.GetAxis("Vertical") * speed) * Time.deltaTime);
+        
+        
+        if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
+
+            transform.localEulerAngles = new Vector3(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0);
+        }
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") != 0)
+        {
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                transform.localEulerAngles = new Vector3(0,0, 0);
+            }
+            else if (Input.GetAxis("Vertical") < 0)
+            {
+                transform.localEulerAngles = new Vector3(0, 180, 0);
+            }
+        }
+        if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+        {
+
+        }
+        Debug.Log(Mathf.Sign(Input.GetAxis("Horizontal")));
+        //transform.LookAt(lookAtThat);
+
     }
 
     void FixedUpdate()
     {
+        prevLoc = curLoc;
+        curLoc = transform.position;
         rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
 
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+
     }
 
     void OnCollisionEnter(Collision col)

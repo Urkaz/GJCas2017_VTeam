@@ -5,13 +5,15 @@ using UnityEngine;
 public class GenerateMatrix : MonoBehaviour {
     public Material deactivate;
     public Material activate;
-    int[,] floor;
+    int[][] floor;
     public int height, width;
     public GameObject GO;
 	// Use this for initialization
 	void Start () {
         createMatrix();
-        floor = new int[height, width];
+        //floor = new int[height][width];
+
+        
 	}
 
     void createMatrix() {
@@ -19,7 +21,7 @@ public class GenerateMatrix : MonoBehaviour {
         {
             for (int j = 0; j < width; j++)
             {
-                floor[i, j] = 0;
+                //floor[i, j] = 0;
                 GameObject go;
                 go = Instantiate(GO) as GameObject;
                 go.transform.position = new Vector3(i*3+10,0, j * 3 + 10);
