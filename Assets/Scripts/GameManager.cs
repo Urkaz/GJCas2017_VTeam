@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
 		puzzle_box_01,
 		cargo_bay_02,
 		cargo_bay_03,
-		pipe_level_04
+		pipe_level_04,
+		tile_puzzle_05
 	}
 
 	public Levels initialLevel = Levels.puzzle_box_01;

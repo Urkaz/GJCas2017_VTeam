@@ -41,8 +41,9 @@ public class PenguinController: MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
         //gameObject.AddComponent<Inventory>();
         gm = FindObjectOfType<GameManager>();
-        inv = gm.gameObject.GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
+        if (gm != null)
+            inv = gm.gameObject.GetComponent<Inventory>();
 
         GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
 
@@ -159,22 +160,24 @@ public class PenguinController: MonoBehaviour {
     {
         if(currentCollidedObject!=null)
         {
-            if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type))
-                if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
-                {
-                    if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)) {
+            if(inv != null) {
+                if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type))
+                    if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
+                    {
+                        if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)) {
+                            inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                            PuzzleManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
+                            Destroy(currentCollidedObject);
+                            currentCollidedObject = null;
+                        }
+                    }
+                    else
+                    {
                         inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                        PuzzleManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
                         Destroy(currentCollidedObject);
                         currentCollidedObject = null;
                     }
-                }
-                else
-                {
-                    inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                    Destroy(currentCollidedObject);
-                    currentCollidedObject = null;
-                }
+            }
         }
     }
 
