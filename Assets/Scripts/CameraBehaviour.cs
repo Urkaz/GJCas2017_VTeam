@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
     public GameObject cam;
-    public float Amplitude = 0.75f;
     public Camera camera;
     private GameObject player;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -16,30 +16,13 @@ public class CameraBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Quaternion angle = Quaternion.Euler(new Vector3(0, 90 + 65 * Mathf.Sin(Time.timeSinceLevelLoad * 0.4f), 0));
+        cam.transform.rotation = angle;
 
-        cam.transform.Rotate(new Vector3(0, (Amplitude * Mathf.Sin(Time.timeSinceLevelLoad)), 0));
-        /*Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
-
-        if (GeometryUtility.TestPlanesAABB(planes, player.GetComponent<MeshRenderer>().bounds))
-        {
-           
-           
-
-
-
-
-
-
-        }*/
     }
 
     void OnTriggerEnter(Collider col)
     {
-       /* if (col.gameObject.tag.Equals("Player"))
-        {
-            col.gameObject.GetComponent<PenguinController>().Dead();
-        }*/
-        
         
     }
 

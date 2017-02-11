@@ -27,13 +27,13 @@ public class PenguinController: MonoBehaviour {
         GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
         if (PlayerPrefs.GetInt("TargetSpawn", -1)==-1)
         {
-            PlayerPrefs.SetInt("TargetSpawn", 2);
+            PlayerPrefs.SetInt("TargetSpawn", 0);
         }
         foreach (GameObject spawn in arraySpawns)
         {
             if (spawn.GetComponent<SpawnInfo>().SpawnIndex == PlayerPrefs.GetInt("TargetSpawn"))
             {
-                transform.position = spawn.transform.position;
+                transform.position = spawn.transform.position + Vector3.up * gameObject.GetComponent<SphereCollider>().bounds.extents.y;
                 break;
             }
         }
@@ -41,6 +41,7 @@ public class PenguinController: MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetAxis("PickUp")!=0)
@@ -48,28 +49,16 @@ public class PenguinController: MonoBehaviour {
             PickUp();
         }
 
-        //transform.Translate(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
     }
 
     private void FixedUpdate()
     {
-        /*if (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) == Vector3.zero)
-            rb.velocity = Vector3.zero;
-        rb.MovePosition(transform.position + new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))* speed * Time.deltaTime);
-        */
-        if(currentState == State.PUSHING )
-        {
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0, Input.GetAxis("Vertical") * Time.deltaTime));
-        }
-        else
-        {
             rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
 
             if (rb.velocity.magnitude >= maxspeed)
             {
                 rb.velocity = rb.velocity.normalized * maxspeed;
             }
-        }
         
     }
 
