@@ -8,12 +8,12 @@ public class LightGuard : MonoBehaviour {
     public float speed = 1;
 
     private float angle;
-    public Vector3 center = new Vector3(0, 1, 0);
+    Vector3 center = new Vector3(0, 1, 0);
     public GameObject guard;
 
     // Use this for initialization
     void Start () {
-		
+        center = gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
