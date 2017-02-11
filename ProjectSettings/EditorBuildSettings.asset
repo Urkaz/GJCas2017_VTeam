@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Rooms/cargo_bay_03.unity
   - enabled: 1
     path: Assets/Rooms/pipe_level_04.unity
+  - enabled: 1
+    path: Assets/Rooms/tile_puzzle_05.unity

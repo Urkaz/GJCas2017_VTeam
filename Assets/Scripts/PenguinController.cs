@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
 
 public class PenguinController: MonoBehaviour {
 
@@ -31,15 +29,12 @@ public class PenguinController: MonoBehaviour {
     public enum State
     {
         ALIVE,
-        DUDU,
         DEAD,
-        PUSHING
     };
 
 	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
-        //gameObject.AddComponent<Inventory>();
         gm = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody>();
         if (gm != null)
@@ -56,80 +51,78 @@ public class PenguinController: MonoBehaviour {
                     break;
                 }
             }
-            gm.setSpawnTarget(-1);
         }
 	}
 	
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis("PickUp")!=0)
+        if(!currentState.Equals(State.DEAD))
         {
-            PickUp();
+            if (Input.GetAxis("PickUp")!=0)
+            {
+                PickUp();
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
-        if (rb.velocity.magnitude > maxSpeed)
+        if(currentState.Equals(State.DEAD))
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            anim.SetFloat("VSpeed", 0.0f);
         }
-
-        if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0), Time.deltaTime * rotSpeed);
-        }
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") != 0)
+        else
         {
-            if (Input.GetAxis("Vertical") > 0)
+            rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+            if (rb.velocity.magnitude > maxSpeed)
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,0,0), Time.deltaTime * rotSpeed);
-                //transform.localEulerAngles = new Vector3(0,0, 0);
+                rb.velocity = rb.velocity.normalized * maxSpeed;
             }
-            else if (Input.GetAxis("Vertical") < 0)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * rotSpeed);
 
-                //transform.localEulerAngles = new Vector3(0, 180, 0);
+            if(Input.GetAxis("Horizontal")!= 0 && Input.GetAxis("Vertical") ==0){
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, Mathf.Sign(Input.GetAxis("Horizontal")) * 90, 0), Time.deltaTime * rotSpeed);
             }
+            if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") != 0)
+            {
+                if (Input.GetAxis("Vertical") > 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,0,0), Time.deltaTime * rotSpeed);
+                }
+                else if (Input.GetAxis("Vertical") < 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * rotSpeed);
+                }
+            }
+            if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+            {
+                if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") >= 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 45, 0), Time.deltaTime * rotSpeed);
+                }
+                if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") <= 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 225, 0), Time.deltaTime * rotSpeed);
+                }
+                if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") <= 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 135, 0), Time.deltaTime * rotSpeed);
+                }
+                if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") >= 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 315, 0), Time.deltaTime * rotSpeed);
+                }
+            }
+            if((Mathf.Abs(Input.GetAxis("Vertical"))) > 0)
+            {
+                animSpeed = Mathf.Abs(Input.GetAxis("Vertical"));
+            }
+            else if ((Mathf.Abs(Input.GetAxis("Horizontal"))) > 0)
+            {
+                animSpeed = Mathf.Abs(Input.GetAxis("Horizontal"));
+            }
+            anim.SetFloat("VSpeed", animSpeed);
         }
-        if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
-        {
-            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") >= 0)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 45, 0), Time.deltaTime * rotSpeed);
-
-                //transform.localEulerAngles = new Vector3(0, 45, 0);
-            }
-            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") <= 0)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 225, 0), Time.deltaTime * rotSpeed);
-
-                //transform.localEulerAngles = new Vector3(0, 225, 0);
-            }
-            if (Input.GetAxis("Horizontal") >= 0 && Input.GetAxis("Vertical") <= 0)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 135, 0), Time.deltaTime * rotSpeed);
-
-                //transform.localEulerAngles = new Vector3(0, 135, 0);
-            }
-            if (Input.GetAxis("Horizontal") <= 0 && Input.GetAxis("Vertical") >= 0)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 315, 0), Time.deltaTime * rotSpeed);
-
-                //transform.localEulerAngles = new Vector3(0, 315, 0);
-            }
-        }
-        if((Mathf.Abs(Input.GetAxis("Vertical"))) > 0)
-        {
-            animSpeed = Mathf.Abs(Input.GetAxis("Vertical"));
-        }
-        else if ((Mathf.Abs(Input.GetAxis("Horizontal"))) > 0)
-        {
-            animSpeed = Mathf.Abs(Input.GetAxis("Horizontal"));
-        }
-        anim.SetFloat("VSpeed", animSpeed);
     }
 	
     private void OnTriggerEnter (Collider collision)
@@ -152,10 +145,7 @@ public class PenguinController: MonoBehaviour {
         }
 
     }
-    public void SetState(State state)
-    {
-        currentState = state;
-    }
+
     void PickUp()
     {
         if(currentCollidedObject!=null)
@@ -196,6 +186,7 @@ public class PenguinController: MonoBehaviour {
     {
         if(!currentState.Equals(State.DEAD))
         {
+            currentState = State.DEAD;
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
         }
     }
