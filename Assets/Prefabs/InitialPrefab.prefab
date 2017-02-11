@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 92961915767835866}
   - component: {fileID: 124342984719607266}
   - component: {fileID: 81111878650234470}
+  - component: {fileID: 114939320450925386}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -360,7 +361,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5153b78617690e44eabafcc1b2cdf172, type: 2}
+  - {fileID: 2100000, guid: a9cc4f37b89b9e2488ca4ed3d47f0000, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -391,7 +392,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b831f88a91109f648913a7763e7b1468, type: 2}
+  - {fileID: 2100000, guid: 2c9dcb2a262cdd54daf6d7cbc2e6eff3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -497,6 +498,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605125735517812}
   m_Enabled: 1
+--- !u!114 &114939320450925386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605125735517812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a17cbca0fc20114399e02142823aadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTexture: {fileID: 2800000, guid: 107572fead8b95d46a227c315a57491a, type: 3}
+  fade: 0
 --- !u!124 &124342984719607266
 Behaviour:
   m_ObjectHideFlags: 1
