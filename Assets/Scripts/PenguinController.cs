@@ -9,7 +9,7 @@ public class PenguinController: MonoBehaviour {
     GameObject currentCollidedObject;
     Inventory inv;
     Rigidbody rb;
-    PuzzleManager PipeManager;
+    PuzzleManager pipeManager;
 	
 	public int speed;
     public float rotSpeed;
@@ -70,7 +70,6 @@ public class PenguinController: MonoBehaviour {
 
     private void FixedUpdate()
     {
-        
         rb.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
         if (rb.velocity.magnitude > maxSpeed)
         {
@@ -129,12 +128,7 @@ public class PenguinController: MonoBehaviour {
         {
             animSpeed = Mathf.Abs(Input.GetAxis("Horizontal"));
         }
-
-
         anim.SetFloat("VSpeed", animSpeed);
-        
-
-
     }
 	
     private void OnTriggerEnter (Collider collision)
@@ -170,7 +164,7 @@ public class PenguinController: MonoBehaviour {
                 {
                     if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)) {
                         inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                        PipeManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
+                        PuzzleManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
                         Destroy(currentCollidedObject);
                         currentCollidedObject = null;
                     }
