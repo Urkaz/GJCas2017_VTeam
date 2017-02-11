@@ -41,7 +41,7 @@ public class MoveBox : MonoBehaviour {
     void Update () {
         if (player != null)
         {
-            print("asfasdf");
+            //print("asfasdf");
             Bounds boxBounds = gameObject.GetComponent<BoxCollider>().bounds;
             float size = (boxBounds.max.x - boxBounds.min.x) / 2;
             float Horizontal = Input.GetAxis("Horizontal");
