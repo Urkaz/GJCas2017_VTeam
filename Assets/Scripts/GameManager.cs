@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour {
 	public enum Levels {
 		main_menu,
 		puzzle_box_01,
-		camera_02
+		cargo_bay_02,
+		cargo_bay_03,
+		pipe_level_04
 	}
 
 	private Levels currentLevel = Levels.main_menu;
