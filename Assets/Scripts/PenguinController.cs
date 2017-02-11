@@ -163,13 +163,11 @@ public class PenguinController: MonoBehaviour {
     {
         if(currentCollidedObject!=null)
         {
-            if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) && currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe) ;
-
             if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
             {
                 if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)){
                     inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                    PipeManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
+                    PuzzleManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
                     Destroy(currentCollidedObject);
                     currentCollidedObject = null;
                 }

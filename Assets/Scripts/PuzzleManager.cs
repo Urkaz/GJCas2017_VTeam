@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour {
-    public bool P1;
-    public bool P2;
-    public bool P3;
+    public static bool P1;
+    public static bool P2;
+    public static bool P3;
+    public static bool Activated;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	public void GetPipe(int num)
+	public static void GetPipe(int num)
     {
+        Activated = true;
         switch (num)
         {
             case 1:
@@ -23,12 +25,14 @@ public class PuzzleManager : MonoBehaviour {
             case 3:
                 P3 = true;
                 break;
+            default:
+                break;
         }
 
     }
 
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
