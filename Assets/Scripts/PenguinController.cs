@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor.Animations;
 
 public class PenguinController: MonoBehaviour {
 
@@ -19,7 +20,11 @@ public class PenguinController: MonoBehaviour {
     private Vector3 prevLoc;
 
     Vector3 lookAtThat;
-    
+
+    Animator anim;
+
+    public float animSpeed;
+
     public enum State
     {
         ALIVE,
@@ -30,6 +35,7 @@ public class PenguinController: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        anim = gameObject.GetComponent<Animator>();
         gameObject.AddComponent<Inventory>();
         inv = gameObject.GetComponent<Inventory>();
         GameObject[] arraySpawns = GameObject.FindGameObjectsWithTag("Spawn");
@@ -111,6 +117,20 @@ public class PenguinController: MonoBehaviour {
                 //transform.localEulerAngles = new Vector3(0, 315, 0);
             }
         }
+        if((Mathf.Abs(Input.GetAxis("Vertical"))) > 0)
+        {
+            animSpeed = Mathf.Abs(Input.GetAxis("Vertical"));
+        }
+        else if ((Mathf.Abs(Input.GetAxis("Horizontal"))) > 0)
+        {
+            animSpeed = Mathf.Abs(Input.GetAxis("Horizontal"));
+        }
+
+
+        anim.SetFloat("VSpeed", animSpeed);
+        
+
+
     }
 	
     private void OnTriggerEnter (Collider collision)
