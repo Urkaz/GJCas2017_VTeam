@@ -286,6 +286,33 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1530005312139588, guid: d5fd44bd495501e4f89ae9527e6430bb, type: 2}
+      propertyPath: m_Name
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901982313989072, guid: d5fd44bd495501e4f89ae9527e6430bb, type: 2}
+      propertyPath: m_Name
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650325171438928, guid: d5fd44bd495501e4f89ae9527e6430bb, type: 2}
+      propertyPath: m_Name
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125021256480878, guid: d5fd44bd495501e4f89ae9527e6430bb,
+        type: 2}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020703793489652, guid: d5fd44bd495501e4f89ae9527e6430bb,
+        type: 2}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114949248630381070, guid: d5fd44bd495501e4f89ae9527e6430bb,
+        type: 2}
+      propertyPath: type
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5fd44bd495501e4f89ae9527e6430bb, type: 2}
   m_IsPrefabParent: 0
@@ -337,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480dae78c0e9af14481e630a377a7b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Activated: 0
 --- !u!1001 &637881242
 Prefab:
   m_ObjectHideFlags: 0
@@ -459,11 +487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 511530483}
+  neededPipe: 4
 --- !u!1001 &956017885
 Prefab:
   m_ObjectHideFlags: 0
@@ -639,11 +666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 987653998}
+  neededPipe: 3
 --- !u!1001 &1511973377
 Prefab:
   m_ObjectHideFlags: 0
@@ -772,11 +798,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 3
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 1717696062}
+  neededPipe: 5
 --- !u!20 &2092553752 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20306956033000738, guid: a3cd14dc2e9d5a34581123f5c7ae2691,

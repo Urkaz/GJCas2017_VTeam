@@ -6,13 +6,17 @@ public class Inventory: MonoBehaviour
 {
     public enum Items
     {
+        NONE,
         CargoKey,
         SteamKey,
-        Pipe
+        Pipe1,
+        Pipe2,
+        Pipe3
     };
 
     //inventory has the id of object
     public List<Items> inventory = new List<Items>();
+    
 
     //Add id of object
     public void addObject(Items item)

@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PipeActivator : MonoBehaviour {
 
-    public int ID;
+    //public int ID;
     GameObject Player;
     Inventory inv;
-    public GameObject P1;
+    /*public GameObject P1;
     public GameObject P2;
-    public GameObject P3;
-    public bool activate;
+    public GameObject P3;*/
+    public bool activated;
+    public GameObject MyPuzzleManager;
+    public GameObject PipeToActivateFromScene;
+
+    public Inventory.Items neededPipe;
 
 	// Use this for initialization
 	void Start () {
         Player = GameObject.FindGameObjectWithTag ("Player");
         inv = GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>();
-        activate = false;
+        activated = false; //esto habria que cambiarlo en caso de que restauremos estado tras completar puzzles
 
     }
 	
@@ -29,39 +33,14 @@ public class PipeActivator : MonoBehaviour {
 
         if (other.gameObject == Player)
         {
-            if (Input.GetAxis("PickUp") != 0)
+            if (Input.GetAxis("PickUp") != 0 && inv.Contains(neededPipe) && !activated)
             {
-                activate = true;
-                Debug.Log("Entro al pikup");
+                activated = true;
+                MyPuzzleManager.GetComponent<PuzzleManager>().AddPipePlaced();
+                inv.removeObject(neededPipe);
+                PipeToActivateFromScene.SetActive(true);
+                
             }
-            if (activate)
-            {
-                activate = false;
-                inv.removeObject(Inventory.Items.Pipe);
-                switch (ID)
-                {
-                    case 1:
-                        if(PuzzleManager.P1)
-                        {
-                            P1.SetActive(true);
-                        }
-                        break;
-                    case 2:
-                        if (PuzzleManager.P2)
-                        {
-                            P2.SetActive(true);
-                        }
-                        break;
-                    case 3:
-                        if (PuzzleManager.P3)
-                        {
-                            P3.SetActive(true);
-                        }
-                        break;
-                    default:
-                        break;
-                    }
-                }
         }
     }
 }

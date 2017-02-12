@@ -15,8 +15,13 @@ public class PickUpType : MonoBehaviour {
 	}
 
     void OnTriggerEnter() {
-        promptItem.gameObject.SetActive(true);
-        item.GetComponent<Renderer>().material.SetColor("_OutColor", new Color(1,0.5f,0));
+        if((int)GetComponentInParent<PickUpType>().type<=(int)Inventory.Items.Pipe1 || (!(GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe1) ||
+            GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe2) ||
+            GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe3))))
+            {
+                promptItem.gameObject.SetActive(true);
+                item.GetComponent<Renderer>().material.SetColor("_OutColor", new Color(1,0.5f,0));
+            }
     }
 
     void OnTriggerExit() {

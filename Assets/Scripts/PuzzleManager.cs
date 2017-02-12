@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour {
-    public static bool P1;
-    public static bool P2;
-    public static bool P3;
-    public static bool Activated;
-	// Use this for initialization
-	void Start () {
+    public bool Activated;
+    private int TotalPuzzlePieces = 3;
+    private int PipesPlaced = 0;
+    // Use this for initialization
+    void Start () {
 		
 	}
-	public static void GetPipe(int num)
+	public void AddPipePlaced()
     {
-        Activated = true;
-        switch (num)
+        if (!Activated)
         {
-            case 1:
-                P1 = true;
-                break;
-            case 2:
-                P2 = true;
-                break;
-            case 3:
-                P3 = true;
-                break;
-            default:
-                break;
+            PipesPlaced++;
+            if (PipesPlaced >= TotalPuzzlePieces)
+            {
+                Activated = true;
+                print("COMPLETED");
+            }
         }
-
     }
 }
