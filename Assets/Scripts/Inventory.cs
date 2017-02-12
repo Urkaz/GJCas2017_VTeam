@@ -46,6 +46,7 @@ public class Inventory: MonoBehaviour
          return inventory.Contains(item);
     }
 
-
-
+    public void ResetInventory() {
+        inventory.Clear();
+    }
 }

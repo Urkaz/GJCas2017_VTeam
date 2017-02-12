@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 114520538697783284}
   - component: {fileID: 114948034285061830}
   - component: {fileID: 114545726216349958}
+  - component: {fileID: 114086932949729856}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -641,13 +642,36 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605125735517812}
   m_Enabled: 1
---- !u!114 &114520538697783284
+--- !u!114 &114086932949729856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605125735517812}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0.154
+  chromaticAberration: 0
+  axialAberration: 0.5
+  blur: 0.063
+  blurSpread: 0.487
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
+--- !u!114 &114520538697783284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605125735517812}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
@@ -775,8 +799,8 @@ MonoBehaviour:
   m_Radius: 0.4
   m_SampleCount: 2
   m_OcclusionIntensity: 4
-  m_Blur: 4
-  m_Downsampling: 6
+  m_Blur: 2
+  m_Downsampling: 1
   m_OcclusionAttenuation: 2
   m_MinZ: 0.00001
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}

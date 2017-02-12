@@ -143,23 +143,20 @@ public class PenguinController: MonoBehaviour {
 
     private void OnTriggerExit (Collider collision)
     {
-        if (currentCollidedObject==collision.gameObject)
-        {
+        if (currentCollidedObject == collision.gameObject)
             currentCollidedObject = null;
-        }
-
     }
 
     void PickUp()
     {
-        if(currentCollidedObject!=null)
+        if(currentCollidedObject != null)
         {
             if(inv != null) {
                 if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) )
                 {
                     if((int) currentCollidedObject.GetComponent<PickUpType>().type >= (int) Inventory.Items.Pipe1 )
                     {
-                        if( !(inv.Contains(Inventory.Items.Pipe1) || inv.Contains(Inventory.Items.Pipe2) || inv.Contains(Inventory.Items.Pipe2)))
+                        if( !(inv.Contains(Inventory.Items.Pipe1) || inv.Contains(Inventory.Items.Pipe2) || inv.Contains(Inventory.Items.Pipe3)))
                         {
                             inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
                             Destroy(currentCollidedObject);
@@ -175,6 +172,7 @@ public class PenguinController: MonoBehaviour {
             }
         }
     }
+    
     void EnterDoor(GameObject door)
     {
         if(door.GetComponent<SwitchScene>().neededItem.Equals(Inventory.Items.NONE) || inv.findObject(door.GetComponent<SwitchScene>().neededItem))
@@ -198,6 +196,7 @@ public class PenguinController: MonoBehaviour {
     {
         if(!currentState.Equals(State.DEAD))
         {
+            gm.GetComponent<Inventory>().ResetInventory();
             currentState = State.DEAD;
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout_>().fade = true;
         }
