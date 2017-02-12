@@ -19,7 +19,9 @@ public class PipeActivator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Player = GameObject.FindGameObjectWithTag ("Player");
-        inv = GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>();
+        GameManager gm = GameObject.FindObjectOfType<GameManager>();
+        if(gm != null)
+            inv = gm.GetComponent<Inventory>();
         activated = false; //esto habria que cambiarlo en caso de que restauremos estado tras completar puzzles
 
     }

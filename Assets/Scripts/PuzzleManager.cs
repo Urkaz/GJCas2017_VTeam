@@ -6,10 +6,9 @@ public class PuzzleManager : MonoBehaviour {
     public bool Activated;
     private int TotalPuzzlePieces = 3;
     private int PipesPlaced = 0;
-    // Use this for initialization
-    void Start () {
-		
-	}
+
+    public Transform particles;
+
 	public void AddPipePlaced()
     {
         if (!Activated)
@@ -18,6 +17,7 @@ public class PuzzleManager : MonoBehaviour {
             if (PipesPlaced >= TotalPuzzlePieces)
             {
                 Activated = true;
+                particles.gameObject.SetActive(false);
                 print("COMPLETED");
             }
         }
