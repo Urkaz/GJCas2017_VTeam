@@ -26,6 +26,8 @@ public class PenguinController: MonoBehaviour {
 
     private GameManager gm;
 
+    private GameObject currentDoorInteracted;
+
     public enum State
     {
         ALIVE,
@@ -67,6 +69,17 @@ public class PenguinController: MonoBehaviour {
         if (Input.GetAxis("ResetRoom") != 0 && currentState != State.DEAD)
         {
             Dead();
+        }
+
+        if ( currentDoorInteracted != null && !currentDoorInteracted.gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            if (gm != null)
+            {
+                int[] a = currentDoorInteracted.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
+                gm.setSpawnTarget(a[1]);
+                gm.LoadLevel((GameManager.Levels)a[0]);
+                currentDoorInteracted = null;
+            }
         }
     }
 
@@ -180,13 +193,17 @@ public class PenguinController: MonoBehaviour {
             if (!door.GetComponent<SwitchScene>().neededItem.Equals(Inventory.Items.NONE))
                 inv.removeObject(door.GetComponent<SwitchScene>().neededItem);
 
-            int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
+            //int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
 
-            if (gm != null)
+            currentDoorInteracted = door;
+            door.gameObject.GetComponent<AudioSource>().Play();
+            
+            /*if (gm != null)
             {
+
                 gm.setSpawnTarget(a[1]);
                 gm.LoadLevel((GameManager.Levels)a[0]);
-            }
+            }*/
         }
         
 

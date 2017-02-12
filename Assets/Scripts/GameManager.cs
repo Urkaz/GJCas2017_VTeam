@@ -18,15 +18,55 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private string controllerName = "";
+    AudioSource audioSourceBocina;
+    AudioSource audioSourceDesert;
+    AudioSource audioSourceSea;
+    AudioSource audioSourceEngines;
+
+    public List<AudioClip> audioList;
+    public List<AudioSource> audioSourceList;
+    private List<AudioEnum> soundsToPlay;
+
 	public Levels initialLevel = Levels.puzzle_box_01;
 
 	private int spawnTarget = -1;
 
-	//private Levels currentLevel = Levels.main_menu;
+    public enum AudioEnum
+    {
+        Bocina,
+        Desert,
+        Sea,
+        Engines
+    }
 
 	void Awake() {
         DontDestroyOnLoad(transform.gameObject);
-		
+
+        audioList.Add((AudioClip)Resources.Load("Audio/Bocina"));
+        audioList.Add((AudioClip)Resources.Load("Audio/Desert"));
+        audioList.Add((AudioClip)Resources.Load("Audio/sea"));
+        audioList.Add((AudioClip)Resources.Load("Audio/engines"));
+
+        audioSourceBocina = gameObject.AddComponent<AudioSource>();
+        audioSourceBocina.clip = audioList[0];
+        audioSourceBocina.loop = false;
+
+        audioSourceDesert = gameObject.AddComponent<AudioSource>();
+        audioSourceDesert.clip = audioList[1];
+        audioSourceDesert.loop = true;
+
+        audioSourceSea = gameObject.AddComponent<AudioSource>();
+        audioSourceSea.clip = audioList[2];
+        audioSourceSea.loop = true;
+
+        audioSourceEngines = gameObject.AddComponent<AudioSource>();
+        audioSourceEngines.clip = audioList[3];
+        audioSourceEngines.loop = true;
+
+        audioSourceList.Add(audioSourceBocina);
+        audioSourceList.Add(audioSourceDesert);
+        audioSourceList.Add(audioSourceSea);
+        audioSourceList.Add(audioSourceEngines);
     }
 
 	public void LoadFirstLevel() {
@@ -56,4 +96,39 @@ public class GameManager : MonoBehaviour {
 	public string getController() {
 		return controllerName;
 	}
+
+    public void setSoundsToPlay(List<AudioEnum> list)
+    {
+        soundsToPlay = list;
+        foreach (AudioEnum item in list)
+        {
+            if(soundsToPlay.Contains(item))
+            {
+                if(!audioSourceList[(int)item].isPlaying)
+                {
+                    if(item.Equals(AudioEnum.Bocina))
+                    {
+                        audioSourceList[(int)item].PlayDelayed(UnityEngine.Random.Range(10, 30));
+                    }
+                    else
+                    {
+                        audioSourceList[(int)item].Play();
+                    }
+                        
+                }
+            }
+            else
+            {
+                audioSourceList[(int)item].Stop();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if(!audioSourceBocina.isPlaying)
+        {
+            audioSourceBocina.PlayDelayed(UnityEngine.Random.Range(10, 30));
+        }
+    }
 }
