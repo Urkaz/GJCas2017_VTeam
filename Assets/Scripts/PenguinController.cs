@@ -170,7 +170,6 @@ public class PenguinController: MonoBehaviour {
             }
         }
     }
-
     void EnterDoor(GameObject door)
     {
         int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
