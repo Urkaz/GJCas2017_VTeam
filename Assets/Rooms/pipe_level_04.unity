@@ -1474,8 +1474,7 @@ Transform:
 --- !u!114 &333674878
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114949248630381070, guid: d5fd44bd495501e4f89ae9527e6430bb,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333674876}
   m_Enabled: 1
@@ -1483,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7c9e864ed5f6240b959fda7898103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 5
 --- !u!114 &333674879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1571,6 +1570,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36245203, y: 0.41682062, z: 0.22850746}
   m_Center: {x: -0.59718466, y: 0.17662622, z: -0.007980645}
+--- !u!1001 &383502323
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.435
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.376401
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &400594143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,7 +2789,7 @@ Transform:
   - {fileID: 881652649}
   - {fileID: 1977691727}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &633210289
 MonoBehaviour:
@@ -2761,6 +2802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480dae78c0e9af14481e630a377a7b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Activated: 0
 --- !u!1001 &637881242
 Prefab:
   m_ObjectHideFlags: 0
@@ -3809,11 +3851,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 511530483}
+  neededPipe: 4
 --- !u!1 &889094236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,19 +4270,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4177005306987018, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1658290452038614, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
       propertyPath: m_Name
       value: InitialPrefab (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458918242081352, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -28.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458918242081352, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 22.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
@@ -4469,7 +4502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7c9e864ed5f6240b959fda7898103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 4
 --- !u!65 &1002601514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4560,7 +4593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1007347614
 GameObject:
@@ -6512,7 +6545,7 @@ Transform:
   - {fileID: 1331717510}
   - {fileID: 989219685}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379826518
 GameObject:
@@ -6797,7 +6830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7c9e864ed5f6240b959fda7898103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 3
 --- !u!114 &1425902541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7037,11 +7070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 987653998}
+  neededPipe: 3
 --- !u!1 &1457996737
 GameObject:
   m_ObjectHideFlags: 0
@@ -8650,7 +8682,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874310411
 GameObject:
@@ -8921,11 +8953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c7344735949ad45b4f397f8a24ee78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 3
-  P1: {fileID: 987653998}
-  P2: {fileID: 511530483}
-  P3: {fileID: 1717696062}
-  activate: 0
+  activated: 0
+  MyPuzzleManager: {fileID: 633210287}
+  PipeToActivateFromScene: {fileID: 1717696062}
+  neededPipe: 5
 --- !u!1 &1978596500
 GameObject:
   m_ObjectHideFlags: 0

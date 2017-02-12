@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SwitchScene : MonoBehaviour {
     public int SpawnTarget;
+    public Inventory.Items neededItem;
 	public GameManager.Levels level = GameManager.Levels.main_menu;
+
 	// Use this for initialization
 	void Start () {
 		

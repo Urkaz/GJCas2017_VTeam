@@ -67,6 +67,10 @@ public class PenguinController: MonoBehaviour {
         {
             PickUp();
         }
+        if (Input.GetAxis("ResetRoom") != 0 && currentState != State.DEAD)
+        {
+            Dead();
+        }
     }
 
     private void FixedUpdate()
@@ -161,34 +165,44 @@ public class PenguinController: MonoBehaviour {
         if(currentCollidedObject!=null)
         {
             if(inv != null) {
-                if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type))
-                    if (currentCollidedObject.GetComponent<PickUpType>().type == Inventory.Items.Pipe)
+                if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type) )
+                {
+                    if((int) currentCollidedObject.GetComponent<PickUpType>().type >= (int) Inventory.Items.Pipe1 )
                     {
-                        if (!inv.Contains(currentCollidedObject.GetComponent<PickUpType>().type)) {
+                        if( !(inv.Contains(Inventory.Items.Pipe1) || inv.Contains(Inventory.Items.Pipe2) || inv.Contains(Inventory.Items.Pipe2)))
+                        {
                             inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                            PuzzleManager.GetPipe(currentCollidedObject.GetComponent<Pipe>().Pieza);
                             Destroy(currentCollidedObject);
                             currentCollidedObject = null;
                         }
                     }
-                    else
-                    {
-                        inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                        Destroy(currentCollidedObject);
-                        currentCollidedObject = null;
-                    }
+                }
+                else
+                { 
+                    inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                    Destroy(currentCollidedObject);
+                    currentCollidedObject = null;
+                }
             }
         }
     }
 
     void EnterDoor(GameObject door)
     {
-        int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
+        if(door.GetComponent<SwitchScene>().neededItem.Equals(Inventory.Items.NONE) || inv.findObject(door.GetComponent<SwitchScene>().neededItem))
+        {
+            if (!door.GetComponent<SwitchScene>().neededItem.Equals(Inventory.Items.NONE))
+                inv.removeObject(door.GetComponent<SwitchScene>().neededItem);
 
-        if(gm != null) {
-            gm.setSpawnTarget(a[1]);
-            gm.LoadLevel((GameManager.Levels) a[0]);
+            int[] a = door.GetComponent<SwitchScene>().GetTargetDoor(); //0 = nivel , 1 = puerta
+
+            if (gm != null)
+            {
+                gm.setSpawnTarget(a[1]);
+                gm.LoadLevel((GameManager.Levels)a[0]);
+            }
         }
+        
 
     }
 

@@ -16,10 +16,16 @@ public class PickUpType : MonoBehaviour {
     {
     }
 
-    void OnTriggerEnter() {
-        promptItem.gameObject.SetActive(true);
+    void OnTriggerEnter()
+    {
+        if((int)GetComponentInParent<PickUpType>().type<=(int)Inventory.Items.Pipe1  || (!(GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe1) ||
+            GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe2) ||
+            GameObject.FindObjectOfType<GameManager>().GetComponent<Inventory>().Contains(Inventory.Items.Pipe3))))
+            {
+                promptItem.gameObject.SetActive(true);
+            }
     }
-
+   
     void OnTriggerExit() {
         promptItem.gameObject.SetActive(false);
     }
