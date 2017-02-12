@@ -7,20 +7,16 @@ using UnityEngine.SceneManagement;
 public class DeathByHeat : MonoBehaviour {
     public Image fadeTexture;
     float fadeSpeed;
-    int drawDepth;
     GameObject player;
 
     private float alpha;
-    private int fadeDir;
     public bool fade = false;
     public float timerUntilDeath; 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         fadeSpeed = 0.2f;
-        drawDepth = -1000;
         alpha = 0.0f;
-        fadeDir = -1;
     }
 
     void Update()

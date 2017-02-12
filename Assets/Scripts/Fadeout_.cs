@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class Fadeout_ : MonoBehaviour {
     //public Texture2D fadeTexture;
     float fadeSpeed;
-    int drawDepth;
-
     private float alpha;
     private int fadeDir;
     public bool fade = false;
@@ -18,7 +16,6 @@ public class Fadeout_ : MonoBehaviour {
     // Use this for initialization
     void Start () {
         fadeSpeed = 0.5f;
-        drawDepth = -1000;
         alpha = 0.0f;
         fadeDir = -1;
     }
