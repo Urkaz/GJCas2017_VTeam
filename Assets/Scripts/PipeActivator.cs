@@ -18,23 +18,17 @@ public class PipeActivator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.FindGameObjectWithTag ("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
         GameManager gm = GameObject.FindObjectOfType<GameManager>();
         if(gm != null)
             inv = gm.GetComponent<Inventory>();
         activated = false; //esto habria que cambiarlo en caso de que restauremos estado tras completar puzzles
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-    }
     private void OnTriggerStay(Collider other)
     {
-
-        if (other.gameObject == Player)
-        {
+        if (other.gameObject == Player) {
             if (Input.GetAxis("PickUp") != 0 && inv.Contains(neededPipe) && !activated)
             {
                 activated = true;

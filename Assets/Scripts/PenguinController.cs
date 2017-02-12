@@ -166,8 +166,7 @@ public class PenguinController: MonoBehaviour {
                             currentCollidedObject = null;
                         }
                     }
-                    else
-                    { 
+                    else { 
                         inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
                         Destroy(currentCollidedObject);
                         currentCollidedObject = null;
@@ -200,7 +199,7 @@ public class PenguinController: MonoBehaviour {
         if(!currentState.Equals(State.DEAD))
         {
             currentState = State.DEAD;
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout>().fade = true;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Fadeout_>().fade = true;
         }
     }
 }

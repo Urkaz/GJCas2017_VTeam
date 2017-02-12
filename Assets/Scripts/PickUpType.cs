@@ -13,6 +13,7 @@ public class PickUpType : MonoBehaviour {
         promptItem = transform.Find("promptItem");
 	}
 
+
     void OnTriggerEnter() {
         GameManager gm = GameObject.FindObjectOfType<GameManager>();
         if(gm != null) {

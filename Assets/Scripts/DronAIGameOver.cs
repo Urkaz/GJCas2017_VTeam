@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DronAIGameOver : MonoBehaviour {
 
-    public Fadeout camera;
+    public Fadeout_ camera;
     public RAIN.Core.AIRig ai;
 
     void OnTriggerEnter(Collider col)
