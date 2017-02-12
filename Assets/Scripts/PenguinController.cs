@@ -176,12 +176,12 @@ public class PenguinController: MonoBehaviour {
                             currentCollidedObject = null;
                         }
                     }
-                }
-                else
-                { 
-                    inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
-                    Destroy(currentCollidedObject);
-                    currentCollidedObject = null;
+                    else
+                    {
+                        inv.addObject((currentCollidedObject.GetComponent<PickUpType>().type));
+                        Destroy(currentCollidedObject);
+                        currentCollidedObject = null;
+                    }
                 }
             }
         }

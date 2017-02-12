@@ -595,6 +595,11 @@ Camera:
   m_PrefabParentObject: {fileID: 20306956033000738, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
     type: 2}
   m_PrefabInternal: {fileID: 1995882037}
+--- !u!4 &1480552057 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373521017012490, guid: 4da57b49dfdcdb04f865945d334ad66d,
+    type: 2}
+  m_PrefabInternal: {fileID: 721185133}
 --- !u!1001 &1515960726
 Prefab:
   m_ObjectHideFlags: 0
@@ -865,6 +870,26 @@ Prefab:
     - target: {fileID: 4177005306987018, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 1480552057}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: visualizeFocus
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: focalSize
+      value: 0.679
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: aperture
+      value: 0.874
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}

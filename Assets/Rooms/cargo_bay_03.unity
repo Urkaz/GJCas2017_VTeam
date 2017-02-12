@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 718a76f3cdb380840aa704bc6994baeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -305,7 +305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4373521017012490, guid: 4da57b49dfdcdb04f865945d334ad66d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4da57b49dfdcdb04f865945d334ad66d, type: 2}
@@ -496,6 +496,11 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!4 &675673702 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4373521017012490, guid: 4da57b49dfdcdb04f865945d334ad66d,
+    type: 2}
+  m_PrefabInternal: {fileID: 291357561}
 --- !u!1 &731661427
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +636,7 @@ Transform:
   - {fileID: 840366804}
   - {fileID: 637369956}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &773006277 stripped
 Transform:
@@ -1017,7 +1022,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4333544929682206, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1883741360888032, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
       propertyPath: m_Name
@@ -1184,7 +1189,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4177005306987018, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 675673702}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: visualizeFocus
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: focalSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114520538697783284, guid: a3cd14dc2e9d5a34581123f5c7ae2691,
+        type: 2}
+      propertyPath: aperture
+      value: 0.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cd14dc2e9d5a34581123f5c7ae2691, type: 2}
