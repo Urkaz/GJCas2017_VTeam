@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class RotateHelix : MonoBehaviour {
 
-    Transform tr;
     public float rotspeed;
 
 	// Use this for initialization
 	void Start () {
-        tr = transform;
 	}
 	
 	// Update is called once per frame

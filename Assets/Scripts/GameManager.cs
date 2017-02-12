@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
 	private int spawnTarget = -1;
 
-	private Levels currentLevel = Levels.main_menu;
+	//private Levels currentLevel = Levels.main_menu;
 
 	void Awake() {
         DontDestroyOnLoad(transform.gameObject);
