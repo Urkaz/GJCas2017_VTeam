@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e64ddb4c7cbb8dd4e9d491e0bf2cfd84
+timeCreated: 1486897702
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CMON NEAR
+  fontNames:
+  - CMON NEAR
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

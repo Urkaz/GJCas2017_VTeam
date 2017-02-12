@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class DeathByHeat : MonoBehaviour {
-    public Texture2D fadeTexture;
+    public Image fadeTexture;
     float fadeSpeed;
     int drawDepth;
     GameObject player;
@@ -36,7 +37,7 @@ public class DeathByHeat : MonoBehaviour {
         Color thisColor = GUI.color;
         thisColor.a = alpha;
         GUI.color = thisColor;
-        GUI.depth = drawDepth;
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
+        fadeTexture.color = thisColor;
+        //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
     }
 }
