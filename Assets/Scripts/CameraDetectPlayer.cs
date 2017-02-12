@@ -11,10 +11,6 @@ public class CameraDetectPlayer : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {	
-	}
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag.Equals("Player"))
