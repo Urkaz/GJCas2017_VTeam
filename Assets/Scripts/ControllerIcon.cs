@@ -10,7 +10,8 @@ public class ControllerIcon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(GameObject.FindObjectOfType<GameManager>().getController().Equals("Xbox Bluetooth Gamepad")) {
+		string[] c = Input.GetJoystickNames();
+		if(c[0].Equals("Xbox Bluetooth Gamepad")) {
 			Image i = GetComponent<Image>();
 			if(i != null)
 				i.sprite = xbo;
@@ -26,10 +27,5 @@ public class ControllerIcon : MonoBehaviour {
 			if(s != null)
 				s.sprite = pc;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

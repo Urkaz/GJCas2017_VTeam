@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Rooms/patrol_level_06.unity
   - enabled: 1
     path: Assets/Scenes/video_intro.unity
+  - enabled: 1
+    path: Assets/Scenes/video_end.unity

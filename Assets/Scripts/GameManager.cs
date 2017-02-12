@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour {
 		video_intro,
 		video_end
 	}
-
-	private string controllerName = "";
     AudioSource audioSourceBocina;
     AudioSource audioSourceDesert;
     AudioSource audioSourceSea;
@@ -72,12 +70,6 @@ public class GameManager : MonoBehaviour {
 	public void LoadFirstLevel() {
 		LoadLevel(initialLevel);
 		setSpawnTarget(0);
-
-		string[] c = Input.GetJoystickNames();
-		if(c.Length > 0)
-			controllerName = c[0];
-
-		Debug.Log(controllerName);
 	}
 
 	public void LoadLevel(Levels level) {
@@ -93,9 +85,6 @@ public class GameManager : MonoBehaviour {
 		return spawnTarget;
 	}
 
-	public string getController() {
-		return controllerName;
-	}
 
     public void setSoundsToPlay(List<AudioEnum> list)
     {
