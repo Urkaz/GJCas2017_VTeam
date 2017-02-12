@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4986659994189326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4764443857239634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4462036945989402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4615479361677110}
   - component: {fileID: 95274866775001104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pingu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4600295441897030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Forearm_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4282546392477252}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4724967035923342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Tie02_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4325954545898484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4047062036863580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4945080135906392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Foot_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4412718507748602}
   - component: {fileID: 137465761909932588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4573771057383224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4265433218546336}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Arm.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4238073095965266}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Bow_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4792782372805478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4804800809176186}
   - component: {fileID: 137068735502516572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4969243933515772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339022965846004}
   - component: {fileID: 137971323025665320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4176102744939944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Tie02_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4131932410990364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Forearm_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4503507815525518}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4081549407961542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_Tail.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4605209428682544}
   - component: {fileID: 137592859224670796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4410792478099656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Tie02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4195495474674124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Foot_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4658903543288574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Tie02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4314129203746656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4408513810290144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4989967982646136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Tie_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4434370645687108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_R_Bow_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4476980010646558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_Tail.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4158584194557534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,8 +510,24 @@ GameObject:
   - component: {fileID: 23893186037670320}
   - component: {fileID: 33733358851482032}
   - component: {fileID: 95335551976825006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1962978547591352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4110062385887604}
+  - component: {fileID: 114571502577455108}
+  m_Layer: 9
+  m_Name: Entity
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +541,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4655106597753218}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bn_L_Tie_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,6 +574,19 @@ Transform:
   m_Children:
   - {fileID: 4476980010646558}
   m_Father: {fileID: 4573771057383224}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4110062385887604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962978547591352}
+  m_LocalRotation: {x: -0, y: 0.080385804, z: -0, w: 0.9967639}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.568446, y: 1.5684463, z: 1.568446}
+  m_Children: []
+  m_Father: {fileID: 4373521017012490}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4131932410990364
@@ -706,9 +735,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1962720993541172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.586625, y: 0.73, z: 1.7027355}
+  m_LocalPosition: {x: -6, y: 0.6, z: -3.1}
   m_LocalScale: {x: 0.63757366, y: 0.63757366, z: 0.63757366}
   m_Children:
+  - {fileID: 4110062385887604}
   - {fileID: 4615479361677110}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -865,7 +895,7 @@ Transform:
   - {fileID: 4804800809176186}
   - {fileID: 4339022965846004}
   m_Father: {fileID: 4373521017012490}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 10.389001, z: 0}
 --- !u!4 &4655106597753218
 Transform:
@@ -1094,6 +1124,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114571502577455108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962978547591352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 220721487, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _serializedData: <component version="1.3" type="RAIN.Entities.EntityRig"><fields><field
+      value="OnWhenSelected" type="RAIN.Core.VisualModeEnum" id="_visualMode" /><field
+      value="True" type="System.Boolean" id="_useUnityMessages" /><field type="RAIN.Entities.Entity"
+      reference="0" id="_entity" /></fields><references><reference type="RAIN.Entities.Entity"
+      refcount="1" id="0"><field value="Player" type="System.String" id="_entityName"
+      /><field value="True" type="System.Boolean" id="_isActive" /><field type="UnityEngine.GameObject"
+      id="_form" gameobject="0" /><field type="System.Collections.Generic.List" id="_aspects"
+      elementtype="RAIN.Entities.Aspects.RAINAspect"><field type="RAIN.Entities.Aspects.VisualAspect"
+      reference="1" id="element0" /></field></reference><reference type="RAIN.Entities.Aspects.VisualAspect"
+      refcount="1" id="1"><field value="True" type="System.Boolean" id="_showVisual"
+      /><field value="Player" type="System.String" id="_aspectName" /><field value="True"
+      type="System.Boolean" id="_isActive" /><field value="0,0.6,0,1" type="UnityEngine.Color"
+      id="_aspectColor" /><field value="-0.5" type="System.Single" id="_outlineColorOffset"
+      /><field value="0.4" type="System.Single" id="_selectionColorOffset" /><field
+      value="0.1" type="System.Single" id="_visualSize" /><field type="UnityEngine.Transform"
+      id="_mountPoint" gameobject="-1" /><field value="0,0,0" type="UnityEngine.Vector3"
+      id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3" id="_angleOffset"
+      /></reference></references></component>
+    _serializedGameObjects:
+    - {fileID: 1962720993541172}
+    _serializedCustomData: []
 --- !u!114 &114705600256662520
 MonoBehaviour:
   m_ObjectHideFlags: 1
