@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Rooms/tile_puzzle_05.unity
   - enabled: 1
     path: Assets/Rooms/patrol_level_06.unity
+  - enabled: 1
+    path: Assets/Scenes/video_intro.unity

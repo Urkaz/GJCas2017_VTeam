@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour {
 		cargo_bay_03,
 		pipe_level_04,
 		tile_puzzle_05,
-		patrol_level_06
+		patrol_level_06,
+		video_intro,
+		video_end
 	}
 
+	private string controllerName = "";
 	public Levels initialLevel = Levels.puzzle_box_01;
 
 	private int spawnTarget = -1;
@@ -23,11 +26,18 @@ public class GameManager : MonoBehaviour {
 
 	void Awake() {
         DontDestroyOnLoad(transform.gameObject);
+		
     }
 
 	public void LoadFirstLevel() {
 		LoadLevel(initialLevel);
 		setSpawnTarget(0);
+
+		string[] c = Input.GetJoystickNames();
+		if(c.Length > 0)
+			controllerName = c[0];
+
+		Debug.Log(controllerName);
 	}
 
 	public void LoadLevel(Levels level) {
@@ -41,5 +51,9 @@ public class GameManager : MonoBehaviour {
 
 	public int getSpawnTarget() {
 		return spawnTarget;
+	}
+
+	public string getController() {
+		return controllerName;
 	}
 }

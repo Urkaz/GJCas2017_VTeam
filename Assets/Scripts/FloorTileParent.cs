@@ -7,6 +7,9 @@ public class FloorTileParent : MonoBehaviour {
     bool completed = false;
     int totalpieces = 0;
     bool canInteract = false;
+
+    public GameObject lockDoor;
+
 	// Use this for initialization
 	void Start () {
 		Transform[] tiles = GetComponentsInChildren<Transform>();
@@ -21,10 +24,6 @@ public class FloorTileParent : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     public void setTileColored(bool activated)
     {
         
@@ -45,6 +44,7 @@ public class FloorTileParent : MonoBehaviour {
             if(activatedTiles >= totalpieces)
             {
                 completed = true;
+                lockDoor.SetActive(false);
             }
         }
     }
