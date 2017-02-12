@@ -7,6 +7,9 @@ TagManager:
   - Pickable
   - Door
   - Spawn
+  - DeskHiding
+  - Enemy
+  - KeySpawn
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Door
   - 
   - 
   - 
