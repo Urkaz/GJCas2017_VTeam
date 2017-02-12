@@ -310,7 +310,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4373521017012490, guid: 4da57b49dfdcdb04f865945d334ad66d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.48
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4373521017012490, guid: 4da57b49dfdcdb04f865945d334ad66d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -846,19 +846,6 @@ Prefab:
       propertyPath: m_Name
       value: Dron (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114317993672872926, guid: e11fcb9c676792743a9584d0f12ac5e8,
-        type: 2}
-      propertyPath: speed
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523601655671774, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 1883741360888032, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
   m_IsPrefabParent: 0
@@ -908,6 +895,11 @@ Prefab:
     - target: {fileID: 1883741360888032, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317993672872926, guid: e11fcb9c676792743a9584d0f12ac5e8,
+        type: 2}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e11fcb9c676792743a9584d0f12ac5e8, type: 2}
